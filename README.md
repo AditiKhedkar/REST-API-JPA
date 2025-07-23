@@ -2,7 +2,7 @@
 
 A Spring Boot application with extended e-commerce functionality.
 
-## 🔧 Features
+
 
 ### 1. Product
 Represents an item for sale. Fields: `id`, `name`, `price`, `category` (linked).
@@ -24,12 +24,7 @@ Used to expose safe, client-facing data formats (not added yet).
 - One-to-Many: `Order` → `OrderItem`
 - Many-to-One: `OrderItem` → `Product`
 
-## 📁 Structure
 
-- `entity/` – All JPA entities (tables)
-- `repository/` – Spring Data interfaces for DB access
-- `controller/` – REST APIs for external access
-- `service/` – Business logic (optional for Order/Category)
 
 ## 🚀 How to Run
 
