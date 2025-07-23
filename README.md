@@ -34,6 +34,4 @@ mvn spring-boot:run
 
 Access H2 DB: `http://localhost:8080/h2-console`
 
----
 
-Want to add User Authentication, Swagger Docs, or pagination next? Let me know!
