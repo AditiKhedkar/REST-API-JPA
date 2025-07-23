@@ -1,73 +1,44 @@
-A simple RESTful web service built using Spring Boot, Spring Data JPA, and H2 in-memory database. This API allows you to perform CRUD operations on Product entities.
+# 🛒 Extended Product REST API
 
-🚀 Features
-Full CRUD API for Product
+A Spring Boot application with extended e-commerce functionality.
 
-JPA Repository for data access
+## 🔧 Features
 
-Service layer abstraction
+### 1. Product
+Represents an item for sale. Fields: `id`, `name`, `price`, `category` (linked).
 
-H2 Database for easy in-memory testing
+### 2. Category
+Groups products under a common name. One category → many products.
 
-Uses Lombok to reduce boilerplate code
+### 3. Order
+Represents a purchase made by a user. Fields: `id`, `orderDate`, list of items.
 
-RESTful endpoints following best practices
+### 4. OrderItem
+Links an `Order` to individual `Product`s with `quantity` and `unitPrice`.
 
-📁 Project Structure
-graphql
-Copy
-Edit
-src/main/java/com/example/demo
-├── controller       # REST endpoints
-├── entity           # JPA entity class (Product)
-├── repository       # Spring Data JPA repository
-├── service          # Business logic
-└── DemoApplication  # Main entry point
-🧪 API Endpoints
-Method	Endpoint	Description
-GET	/api/products	Get all products
-GET	/api/products/{id}	Get product by ID
-POST	/api/products	Create new product
-PUT	/api/products/{id}	Update full product
-PATCH	/api/products/{id}	Update partial fields
-DELETE	/api/products/{id}	Delete product
+### 5. DTOs (optional)
+Used to expose safe, client-facing data formats (not added yet).
 
-🛠️ Technologies Used
-Java 17+
+### 6. JPA Relationships
+- One-to-Many: `Category` → `Product`
+- One-to-Many: `Order` → `OrderItem`
+- Many-to-One: `OrderItem` → `Product`
 
-Spring Boot 3.x
+## 📁 Structure
 
-Spring Data JPA
+- `entity/` – All JPA entities (tables)
+- `repository/` – Spring Data interfaces for DB access
+- `controller/` – REST APIs for external access
+- `service/` – Business logic (optional for Order/Category)
 
-H2 Database
+## 🚀 How to Run
 
-Lombok
-
-Maven
-
-⚙️ Getting Started
-1. Clone the repo
-bash
-Copy
-Edit
-git clone https://github.com/your-username/demo-rest-api.git
-cd demo-rest-api
-2. Run the application
-bash
-Copy
-Edit
+```bash
 mvn spring-boot:run
-3. Access H2 Console (Optional)
-URL: http://localhost:8080/h2-console
+```
 
-JDBC URL: jdbc:h2:mem:testdb
+Access H2 DB: `http://localhost:8080/h2-console`
 
-📬 Sample Product JSON
-json
-Copy
-Edit
-{
-  "name": "Laptop",
-  "price": 45000.0,
-  "category": "Electronics"
-}
+---
+
+Want to add User Authentication, Swagger Docs, or pagination next? Let me know!
